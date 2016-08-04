@@ -19,6 +19,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
@@ -36,3 +39,22 @@ imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
+
+"js snippets
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
