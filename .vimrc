@@ -2,11 +2,18 @@ syntax on
 set nu
 set tabstop=2
 set shiftwidth=2
+:nmap <F1> :bp<CR>
+:imap <F1> <Esc> :bp<CR>
+
 :nmap <F2> :w<CR>
 :imap <F2> <Esc> :w<CR>
 
 :nmap <F3> :bn<CR>
 :imap <F3> <Esc> :bn<CR>
+
+:nmap <F5> :NERDTreeToggle<CR>
+:nmap <F10> :Goyo<CR>
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 colorscheme koehler
@@ -20,6 +27,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/goyo.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 call vundle#end()            " required
