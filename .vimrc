@@ -31,6 +31,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/goyo.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'digitaltoad/vim-pug'
 call vundle#end()            " required
 filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
@@ -67,3 +69,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+"colorcolumn
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
