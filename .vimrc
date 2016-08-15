@@ -2,6 +2,9 @@ syntax on
 set nu
 set tabstop=2
 set shiftwidth=2
+set expandtab
+set incsearch
+set noswapfile
 :nmap <F1> :bp<CR>
 :imap <F1> <Esc> :bp<CR>
 
@@ -11,12 +14,15 @@ set shiftwidth=2
 :nmap <F3> :bn<CR>
 :imap <F3> <Esc> :bn<CR>
 
+:nmap <F7> :Gulp<CR>
+:imap <F7> <Esc> :Gulp<CR>
+
 :nmap <F5> :NERDTreeToggle<CR>
 :nmap <F10> :Goyo<CR>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-colorscheme koehler
+colorscheme delek
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -33,6 +39,7 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'KabbAmine/gulp-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
