@@ -37,7 +37,9 @@ colorscheme elflord
 " push updated vimrc to github
 :nnoremap <leader>gv :!~/./cpvimrc.sh<cr>
 :nnoremap <leader>p Yp
-
+:inoremap jk <esc>
+:nnoremap jf :w<esc>
+:inoremap <esc> <nop>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
