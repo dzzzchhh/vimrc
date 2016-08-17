@@ -1,3 +1,13 @@
+"abbreviations
+:iabbrev angNC app.controller('',()=>{})
+:iabbrev angNF app.filter('',()=>{})
+:iabbrev angND app.directive('',()=>{})
+:nnoremap <leader>cc viw<esc>a"<esc>hbi"<esc>lel
+:nnoremap <leader>cl viw<esc>a)<esc>hbiconsole.log(<esc>lel
+:inoremap <leader>s <esc>:w<Esc>
+:nnoremap <leader>s <esc>:w<Esc>
+syntax on
+syntax on
 syntax on
 set nu
 set tabstop=2
@@ -21,14 +31,15 @@ set noswapfile
 :nmap 0 dd
 :nmap 9 :bd <CR>
 " cool mappings :)
+colorscheme elflord
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>g :!~/./cpvimrc.sh<cr>
+:nnoremap <leader>sv :so%<cr>
+" push updated vimrc to github
+:nnoremap <leader>gv :!~/./cpvimrc.sh<cr>
 :nnoremap <leader>p Yp
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-colorscheme delek
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
