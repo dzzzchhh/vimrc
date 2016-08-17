@@ -20,6 +20,11 @@ set noswapfile
 :nmap <F10> :Goyo<CR>
 :nmap 0 dd
 :nmap 9 :bd <CR>
+" cool mappings :)
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>g :!~/./cpvimrc.sh<cr>
+:nnoremap <leader>p Yp
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 colorscheme delek
