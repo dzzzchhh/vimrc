@@ -16,10 +16,10 @@ set noswapfile
 
 :nmap <F7> :Gulp<CR>
 :imap <F7> <Esc> :Gulp<CR>
-
 :nmap <F5> :NERDTreeToggle<CR>
 :nmap <F10> :Goyo<CR>
-
+:nmap 0 dd
+:nmap 9 :bd <CR>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 colorscheme delek
@@ -40,6 +40,9 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'KabbAmine/gulp-vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'groenewege/vim-less'
+Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()            " required
 filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
@@ -80,3 +83,11 @@ endif
 "colorcolumn
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+set ts=4 sw=4 et
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
