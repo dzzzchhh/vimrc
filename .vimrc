@@ -1,13 +1,25 @@
-"abbreviations
+"statusline {{{
+:set statusline=%f         " Path to the file
+:set statusline+={%y}        " Filetype of the filsv\sv
+:set statusline+=%=        " Switch to the right side
+:set statusline+=Line:        " Switch to the right side
+:set statusline+=%l        " Current line
+:set statusline+=/         " Separator
+:set statusline+=%L        " Total lines
+:set statusline+=lines
+" }}}
+"abbreviations {{{
 :iabbrev angNC app.controller('',()=>{})
 :iabbrev angNF app.filter('',()=>{})
 :iabbrev angND app.directive('',()=>{})
-:nnoremap <leader>cc viw<esc>a"<esc>hbi"<esc>lel
+" }}}
+" logging {{{
 :nnoremap <leader>cl viw<esc>a)<esc>hbiconsole.log(<esc>lel
-:inoremap <leader>s <esc>:w<Esc>
-:nnoremap <leader>s <esc>:w<Esc>
-syntax on
-syntax on
+" }}}
+"replace all occurences of the word
+:nnoremap <Leader>rw :%s/\<<C-r><C-w>\>//g<Left><Left>
+"remove all occurences of the word
+:nnoremap <Leader>dw :%s/\<<C-r><C-w>\>//g<cr>
 syntax on
 set nu
 set tabstop=2
@@ -17,13 +29,10 @@ set incsearch
 set noswapfile
 :nmap <F1> :bp<CR>
 :imap <F1> <Esc> :bp<CR>
-
 :nmap <F2> :w<CR>
 :imap <F2> <Esc> :w<CR>
-
 :nmap <F3> :bn<CR>
 :imap <F3> <Esc> :bn<CR>
-
 :nmap <F7> :Gulp<CR>
 :imap <F7> <Esc> :Gulp<CR>
 :nmap <F5> :NERDTreeToggle<CR>
@@ -35,11 +44,21 @@ colorscheme elflord
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :so%<cr>
 " push updated vimrc to github
-:nnoremap <leader>gv :!~/./cpvimrc.sh<cr>
+:nnoremap <leader>gv :!~/Scripts/./cpvimrc.sh<cr>
 :nnoremap <leader>p Yp
+:nnoremap fq :q<cr>
 :inoremap jk <esc>
-:nnoremap jf :w<esc>
+:inoremap fj <esc>:w<cr>
+:nnoremap fj :w<cr>
 :inoremap <esc> <nop>
+"parenthesis remap
+:onoremap p i(
+:onoremap " i"
+:onoremap ' i'
+:onoremap [ i[
+"folder switch
+"goto home folder
+:nnoremap <leader>gh :cd ~/<CR>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -47,15 +66,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/goyo.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'KabbAmine/gulp-vim'
 Plugin 'junegunn/vim-easy-align'
@@ -109,3 +128,9 @@ set ts=4 sw=4 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
+" Vimscript file settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
