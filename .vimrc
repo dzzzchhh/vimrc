@@ -1,3 +1,6 @@
+set foldmethod=syntax
+set foldlevelstart=1
+set colorcolumn=80
 "abbreviations {{{
 :iabbrev angNC app.controller('',()=>{})
 :iabbrev angNS app.service('',()=>{})
@@ -52,6 +55,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'wavded/vim-stylus'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
