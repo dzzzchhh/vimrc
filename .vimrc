@@ -1,3 +1,7 @@
+"php shortcut
+:nnoremap php ^i<?php?><esc>hha 
+" angularjs string to be passed to translate filter
+:nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 set foldmethod=syntax
 set foldlevelstart=1
 set colorcolumn=80
@@ -62,8 +66,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/goyo.vim'
-"Plugin 'Shougo/neosnippet'
-"Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'KabbAmine/gulp-vim'
@@ -78,13 +82,11 @@ let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 " Enter the Pilcrow mark by pressing Ctrl-k then PI
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
 "disable GUI
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
-
 "js snippets
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -119,5 +121,11 @@ let g:indent_guides_guide_size=1
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+" javascript file settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType javascript  setlocal foldmethod=syntax
 augroup END
 " }}}
