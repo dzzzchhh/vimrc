@@ -1,9 +1,12 @@
 "php shortcut
-:nnoremap php ^i<?php?><esc>hha 
+:nnoremap php ^i<?php?><esc>>>hha 
 " angularjs string to be passed to translate filter
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
+:inoremap <leader>nt {{""\|translate}}<esc>T{a
 set foldmethod=syntax
+set foldcolumn=1
 set foldlevelstart=1
+let javaScript_fold=1
 set colorcolumn=80
 "abbreviations {{{
 :iabbrev angNC app.controller('',()=>{})
@@ -12,9 +15,6 @@ set colorcolumn=80
 :iabbrev aFA app.factory('',()=>{})
 :iabbrev angND app.directive('',()=>{})
 :iabbrev ff() () => {}
-" }}}
-" logging {{{
-:nnoremap <leader>cl viw<esc>a)<esc>hbiconsole.log(<esc>lel
 " }}}
 "replace all occurences of the word
 :nnoremap <Leader>rw :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -34,7 +34,7 @@ set noswapfile
 :nmap <F10> :Goyo<CR>
 :nmap 0 dd
 " cool mappings :)
-colorscheme summerfruit256
+colorscheme elflord
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :so%<cr>
 " push updated vimrc to github
@@ -59,9 +59,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'wavded/vim-stylus'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
@@ -76,6 +76,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tpope/vim-surround'
+Plugin 'jeetsukumaran/vim-buffergator'
 call vundle#end()            " required
 filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
