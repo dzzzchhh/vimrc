@@ -1,11 +1,21 @@
+function ClrColToggle()
+    if &l:colorcolumn == 80
+        echo "Colorcolumn has been disabled"
+        set colorcolumn=0
+    else
+        echo "Colorcolumn has been enabled"
+        set colorcolumn=80
+    endif
+endfunction
+:nnoremap <leader>clr :call ClrColToggle()<CR>
+"ifwrap
+:nnoremap <leader>if 
 "php shortcut
 :nnoremap php ^i<?php?><esc>>>hha 
 " angularjs string to be passed to translate filter
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
 set foldmethod=syntax
-set foldcolumn=1
-set foldlevelstart=1
 let javaScript_fold=1
 set colorcolumn=80
 "abbreviations {{{
@@ -27,7 +37,7 @@ set nu
 set expandtab
 set incsearch
 set hlsearch
-set noswapfile
+"set noswapfile
 :nnoremap bn :bn<CR>
 :nnoremap <leader>G :Gulp<CR>
 :nmap <F5> :NERDTreeToggle<CR>
