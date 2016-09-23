@@ -25,6 +25,7 @@ set colorcolumn=80
 :iabbrev aFA app.factory('',()=>{})
 :iabbrev angND app.directive('',()=>{})
 :iabbrev ff() () => {}
+set wildmenu
 " }}}
 "replace all occurences of the word
 :nnoremap <Leader>rw :%s/\<<C-r><C-w>\>//g<Left><Left>
