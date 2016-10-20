@@ -15,18 +15,10 @@ endfunction
 " angularjs string to be passed to translate filter
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
-set foldmethod=syntax
+set foldmethod=indent
 let javaScript_fold=1
 set colorcolumn=80
-"abbreviations {{{
-:iabbrev angNC app.controller('',()=>{})
-:iabbrev angNS app.service('',()=>{})
-:iabbrev angNF app.filter('',()=>{})
-:iabbrev aFA app.factory('',()=>{})
-:iabbrev angND app.directive('',()=>{})
-:iabbrev ff() () => {}
 set wildmenu
-" }}}
 "replace all occurences of the word
 :nnoremap <Leader>rw :%s/\<<C-r><C-w>\>//g<Left><Left>
 "remove all occurences of the word
