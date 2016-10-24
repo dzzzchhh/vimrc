@@ -30,6 +30,7 @@ set nu
 set expandtab
 set incsearch
 set hlsearch
+nmap <leader>0 :TagbarToggle<cr>
 "set noswapfile
 :nnoremap bn :bn<CR>
 :nnoremap <leader>G :Gulp<CR>
@@ -64,6 +65,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'lukaszkorecki/CoffeeTags'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
