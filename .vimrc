@@ -2,6 +2,7 @@ function ClrColToggle()
     if &l:colorcolumn == 80
         echo "Colorcolumn has been disabled"
         set colorcolumn=0
+        :hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
     else
         echo "Colorcolumn has been enabled"
         set colorcolumn=80
@@ -15,6 +16,8 @@ endfunction
 " angularjs string to be passed to translate filter
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
+:nnoremap <leader>ngb i{{""}}<esc>T{a
+:inoremap <leader>ngb {{""}}<esc>T{a
 set foldmethod=indent
 let javaScript_fold=1
 set colorcolumn=80
@@ -63,11 +66,13 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'lukaszkorecki/CoffeeTags'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
