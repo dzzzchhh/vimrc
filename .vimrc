@@ -1,3 +1,9 @@
+" Coffeescript block coment by LostWOODS
+:nnoremap <leader>q a #<esc>_i# <esc>_YP2l<c-v>t#hr#Yjp
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 function ClrColToggle()
     if &l:colorcolumn == 80
         echo "Colorcolumn has been disabled"
@@ -18,6 +24,8 @@ endfunction
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
 :nnoremap <leader>ngb i{{""}}<esc>T{a
 :inoremap <leader>ngb {{""}}<esc>T{a
+:nnoremap cd  iconsole.debug <esc>
+:inoremap <leader>cd  console.debug 
 set foldmethod=indent
 let javaScript_fold=1
 set colorcolumn=80
@@ -41,7 +49,8 @@ nmap <leader>0 :TagbarToggle<cr>
 :nmap <F10> :Goyo<CR>
 :nmap 0 dd
 " cool mappings :)
-colorscheme elflord
+let g:airline_theme='jay'
+let g:airline_powerline_fonts = 1
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :so%<cr>
 " push updated vimrc to github
@@ -68,12 +77,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'josuegaleas/jay'
+Plugin 'vim-scripts/vim-coffee-script'
+Plugin 'vitalk/vim-simple-todo'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'lukaszkorecki/CoffeeTags'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Shougo/neocomplete'
@@ -143,3 +155,4 @@ augroup filetype_vim
     autocmd FileType javascript  setlocal foldmethod=syntax
 augroup END
 " }}}
+colorscheme jay
