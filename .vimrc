@@ -4,22 +4,6 @@ if !exists('g:airline_symbols')
       let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-function ClrColToggle()
-    if &l:colorcolumn == 80
-        echo "Colorcolumn has been disabled"
-        set colorcolumn=0
-        :hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
-    else
-        echo "Colorcolumn has been enabled"
-        set colorcolumn=80
-    endif
-endfunction
-:nnoremap <leader>clr :call ClrColToggle()<CR>
-"ifwrap
-:nnoremap <leader>if 
-"php shortcut
-:nnoremap php ^i<?php?><esc>>>hha 
-" angularjs string to be passed to translate filter
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
 :nnoremap <leader>ngb i{{""}}<esc>T{a
@@ -78,6 +62,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'qpkorr/vim-bufkill'
 Plugin 'josuegaleas/jay'
 Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'vitalk/vim-simple-todo'
@@ -88,6 +73,7 @@ Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'euclio/vim-nocturne'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/goyo.vim'
@@ -139,7 +125,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-set ts=4 sw=4 et
+set ts=2 sw=2 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
