@@ -1,3 +1,7 @@
+" yank word over existing word
+:nnoremap <leader>rr "zdiw"0p
+:nnoremap <leader>red A.reduce((a,b)=>{return a+b})<esc>
+set foldlevel=20
 " Coffeescript block coment by LostWOODS
 :nnoremap <leader>q a #<esc>_i# <esc>_YP2l<c-v>t#hr#Yjp
 if !exists('g:airline_symbols')
@@ -8,7 +12,7 @@ let g:airline_symbols.space = "\ua0"
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
 :nnoremap <leader>ngb i{{""}}<esc>T{a
 :inoremap <leader>ngb {{""}}<esc>T{a
-:nnoremap cd  iconsole.debug <esc>
+:nnoremap cd  iconsole.debug "" <esc>hi
 :inoremap <leader>cd  console.debug 
 set foldmethod=indent
 let javaScript_fold=1
@@ -141,4 +145,4 @@ augroup filetype_vim
     autocmd FileType javascript  setlocal foldmethod=syntax
 augroup END
 " }}}
-colorscheme jay
+colorscheme default
