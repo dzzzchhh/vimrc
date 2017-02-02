@@ -1,13 +1,35 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" Provides the :BD command that kills the buffer, but not the frame
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'vim-scripts/vim-coffee-script'
+Plugin 'tpope/vim-fugitive'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'mattn/emmet-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Colorscheme
+Plugin 'euclio/vim-nocturne'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-surround'
+Plugin 'jeetsukumaran/vim-buffergator'
+" :Locate :Lpurge <leader> gl(over a word)
+Plugin 'mtth/locate.vim'
+call vundle#end()            " required
 " yank word over existing word
 :nnoremap <leader>rr "zdiw"0p
 :nnoremap <leader>red A.reduce((a,b)=>{return a+b})<esc>
 set foldlevel=20
 " Coffeescript block coment by LostWOODS
 :nnoremap <leader>q a #<esc>_i# <esc>_YP2l<c-v>t#hr#Yjp
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 :nnoremap <leader>nt i{{""\|translate}}<esc>T{a
 :inoremap <leader>nt {{""\|translate}}<esc>T{a
 :nnoremap <leader>ngb i{{""}}<esc>T{a
@@ -37,8 +59,6 @@ nmap <leader>0 :TagbarToggle<cr>
 :nmap <F10> :Goyo<CR>
 :nmap 0 dd
 " cool mappings :)
-let g:airline_theme='jay'
-let g:airline_powerline_fonts = 1
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :so%<cr>
 " push updated vimrc to github
@@ -57,44 +77,7 @@ let g:airline_powerline_fonts = 1
 "folder switch
 "goto home folder
 :nnoremap <leader>gh :cd ~/<CR>
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'josuegaleas/jay'
-Plugin 'vim-scripts/vim-coffee-script'
-Plugin 'vitalk/vim-simple-todo'
-Plugin 'tpope/vim-fugitive'
-Plugin 'majutsushi/tagbar'
-Plugin 'lukaszkorecki/CoffeeTags'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mattn/emmet-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'euclio/vim-nocturne'
-Plugin 'Shougo/neocomplete'
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/goyo.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'KabbAmine/gulp-vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'groenewege/vim-less'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'tpope/vim-surround'
-Plugin 'jeetsukumaran/vim-buffergator'
-call vundle#end()            " required
 filetype plugin indent on    " required
-let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 " Enter the Pilcrow mark by pressing Ctrl-k then PI
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
@@ -145,4 +128,4 @@ augroup filetype_vim
     autocmd FileType javascript  setlocal foldmethod=syntax
 augroup END
 " }}}
-colorscheme default
+colorscheme nocturne
