@@ -128,7 +128,7 @@ augroup filetype_vim
     autocmd FileType javascript  setlocal foldmethod=syntax
 augroup END
 " }}}
-colorscheme nocturne
+colorscheme lanox
 
 set statusline=%t       "tail of the filename
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -141,4 +141,6 @@ set statusline+=%=      "left/right separator
 "set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
-hi StatusLine ctermbg=7 ctermfg=0
+hi StatusLine ctermbg=17 ctermfg=7
+set cursorline
+:hi CursorLine   cterm=NONE ctermbg=17 ctermfg=white guibg=darkred guifg=white
