@@ -77,13 +77,15 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:airline_powerline_fonts=1
 
-"Coloring
-hi Folded guibg=#003213
-hi Folded guifg=#fff332
-if has("win32") || has("win16")
-    set guifont=MesloLGSDZ_Nerd_Font:h16:cRUSSIAN:qDRAFT
-endif
-set termguicolors
 let ayucolor='dark'
 colorscheme ayu
 let g:airline_theme='luna'
+"Coloring
+hi Folded guibg=#003213
+hi Folded guifg=#fff332
+hi VertSplit guifg=#002b2b guibg=#002b2b
+hi Search guifg=white guibg=red
+if has("win32") || has("win16")
+    set guifont=MesloLGSDZ_Nerd_Font:h10:cRUSSIAN:qDRAFT
+endif
+set termguicolors
