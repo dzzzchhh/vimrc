@@ -67,7 +67,7 @@ set hlsearch
 filetype plugin indent on    " required
 set laststatus=2
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-:set guioptions-=m  "remove menu bar
+":set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
@@ -86,6 +86,7 @@ hi Folded guifg=#fff332
 hi VertSplit guifg=#002b2b guibg=#002b2b
 hi Search guifg=white guibg=red
 if has("win32") || has("win16")
-    set guifont=MesloLGSDZ_Nerd_Font:h10:cRUSSIAN:qDRAFT
+    set guifont=CodeNewRoman_NF:h12:cRUSSIAN:qDRAFT
 endif
 set termguicolors
+set nowrap "disable text wrapping 
