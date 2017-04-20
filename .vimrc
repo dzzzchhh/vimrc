@@ -1,3 +1,5 @@
+let mapleader = ","
+nnoremap \ ,
 set nocompatible              " be iMproved, required
 set encoding=utf8
 filetype off                  " required
