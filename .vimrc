@@ -27,8 +27,7 @@ Plugin 'mtth/locate.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'raggi/vim-color-raggi'
+Plugin 'gcmt/taboo.vim'
 call vundle#end()            " required
 :nnoremap <leader>rr "zdiw"0p
 :nnoremap <leader>mdic imd-input-container 
@@ -39,6 +38,7 @@ call vundle#end()            " required
 :inoremap <leader>nf $filter()()<esc>Trla
 :nnoremap <leader>ngb i{{""}}<esc>T{a
 :inoremap <leader>ngb {{""}}<esc>T{a
+:nnoremap <leader>ntb :tabnew<CR> "opens a new tab
 :nnoremap cd  iconsole.debug "" <esc>hi
 :inoremap <leader>cd  console.debug 
 set foldmethod=indent
@@ -83,8 +83,7 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:airline_powerline_fonts=1
 
-let ayucolor='dark'
-colorscheme ayu
+colorscheme nocturne
 let g:airline_theme='cobalt2'
 "Coloring
 hi Folded guibg=#003213
