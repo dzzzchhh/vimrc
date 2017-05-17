@@ -2,6 +2,7 @@ let mapleader = ","
 nnoremap \ ,
 set nocompatible              " be iMproved, required
 set encoding=utf8
+set sessionoptions+=tabpages,globals
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,20 +28,28 @@ Plugin 'mtth/locate.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'ayu-theme/ayu-vim'
+Plugin 'raggi/vim-color-raggi'
 Plugin 'gcmt/taboo.vim'
 call vundle#end()            " required
+nnoremap <tab> >>
+nnoremap <C-tab> <<
+vnoremap <tab> >
+vnoremap <C-tab> <
+inoremap <C-v> <esc>pa
+nnoremap <leader>v :vsp<CR><C-w>l :CtrlP <CR>
+:nnoremap <leader>sts :mksession! ~/session.vim<cr>
 :nnoremap <leader>rr "zdiw"0p
-:nnoremap <leader>mdic imd-input-container 
 :nnoremap <leader>rr "zdiw"0p
 :nnoremap <leader>nt i{{::""\|translate}}<esc>Th"a
-:inoremap <leader>nt {{::""\|translate}}<esc>T"ha
+:inoremap <leader>nt {{::""\|translate}}<esc>T"2ha
 :nnoremap <leader>nf i$filter()()<esc>Trla
 :inoremap <leader>nf $filter()()<esc>Trla
 :nnoremap <leader>ngb i{{""}}<esc>T{a
 :inoremap <leader>ngb {{""}}<esc>T{a
-:nnoremap <leader>ntb :tabnew<CR> "opens a new tab
 :nnoremap cd  iconsole.debug "" <esc>hi
 :inoremap <leader>cd  console.debug 
+nnoremap <leader>tr :TabooRename 
 set foldmethod=indent
 let javaScript_fold=1
 set wildmenu
@@ -73,7 +82,7 @@ inoremap <C-space> <C-p>
 filetype plugin indent on    " required
 set laststatus=2
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-":set guioptions-=m  "remove menu bar
+:set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
@@ -82,16 +91,15 @@ nmap ga <Plug>(EasyAlign)
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:airline_powerline_fonts=1
-
 colorscheme nocturne
-let g:airline_theme='cobalt2'
+let g:airline_theme='base16_paraiso'
 "Coloring
-hi Folded guibg=#003213
-hi Folded guifg=#fff332
+hi Folded guibg=black
+hi Folded guifg=#ffffff
 hi VertSplit guifg=#002b2b guibg=#002b2b
 hi Search guifg=white guibg=red
 if has("win32") || has("win16")
     set guifont=CodeNewRoman_NF:h12:cRUSSIAN:qDRAFT
 endif
-set termguicolors
 set nowrap "disable text wrapping 
+nnoremap <M-1> :tabfirst<CR>
