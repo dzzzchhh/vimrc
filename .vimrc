@@ -1,5 +1,6 @@
 let mapleader = ","
 nnoremap \ ,
+set relativenumber
 set nocompatible              " be iMproved, required
 set encoding=utf8
 set sessionoptions+=tabpages,globals
@@ -28,15 +29,22 @@ Plugin 'mtth/locate.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'raggi/vim-color-raggi'
 Plugin 'gcmt/taboo.vim'
+Plugin 'vim-ruby/vim-ruby'
 call vundle#end()            " required
+nnoremap <leader>ll iconsole.log()<esc>i 
 nnoremap <tab> >>
 nnoremap <C-tab> <<
 vnoremap <tab> >
 vnoremap <C-tab> <
 inoremap <C-v> <esc>pa
+nnoremap <leader>lp :Lpurge<cr>
 nnoremap <leader>v :vsp<CR><C-w>l :CtrlP <CR>
 :nnoremap <leader>sts :mksession! ~/session.vim<cr>
 :nnoremap <leader>rr "zdiw"0p
@@ -91,11 +99,11 @@ nmap ga <Plug>(EasyAlign)
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:airline_powerline_fonts=1
-colorscheme nocturne
+colorscheme default
 let g:airline_theme='base16_paraiso'
 "Coloring
-hi Folded guibg=black
-hi Folded guifg=#ffffff
+hi Folded guibg=#ffffff
+hi Folded guifg=red
 hi VertSplit guifg=#002b2b guibg=#002b2b
 hi Search guifg=white guibg=red
 if has("win32") || has("win16")
@@ -103,3 +111,11 @@ if has("win32") || has("win16")
 endif
 set nowrap "disable text wrapping 
 nnoremap <M-1> :tabfirst<CR>
+hi EmptyLines guibg=#000000
+hi EmptyLines guifg=white
+match EmptyLines /^\s*$/
+"custom commands
+command! SetDark :colorscheme nocturne
+command! SetLight :colorscheme default
+command! SetLargeFont set guifont=CodeNewRoman_NF:h16:cRUSSIAN:qDRAFT
+command! SetSmallFont set guifont=CodeNewRoman_NF:h9:cRUSSIAN:qDRAFT
