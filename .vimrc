@@ -36,8 +36,10 @@ Plugin 'honza/vim-snippets'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'raggi/vim-color-raggi'
 Plugin 'gcmt/taboo.vim'
-Plugin 'vim-ruby/vim-ruby'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()            " required
+nnoremap <F9> /asdf<cr>
 nnoremap <leader>ll iconsole.log()<esc>i 
 nnoremap <tab> >>
 nnoremap <C-tab> <<
@@ -110,12 +112,19 @@ if has("win32") || has("win16")
     set guifont=CodeNewRoman_NF:h12:cRUSSIAN:qDRAFT
 endif
 set nowrap "disable text wrapping 
-nnoremap <M-1> :tabfirst<CR>
-hi EmptyLines guibg=#000000
-hi EmptyLines guifg=white
-match EmptyLines /^\s*$/
+
 "custom commands
-command! SetDark :colorscheme nocturne
+function! SetDarkFn()
+    colorscheme nocturne
+    hi folded guibg=#000000
+endfunction
+command! SetDark call SetDarkFn()
 command! SetLight :colorscheme default
 command! SetLargeFont set guifont=CodeNewRoman_NF:h16:cRUSSIAN:qDRAFT
 command! SetSmallFont set guifont=CodeNewRoman_NF:h9:cRUSSIAN:qDRAFT
+
+"bookmarks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
