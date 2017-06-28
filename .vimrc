@@ -9,11 +9,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'qpkorr/vim-bufkill'
+Plugin 'aunsira/macvim-light'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'mattn/emmet-vim'
+Plugin 'heavenshell/vim-jsdoc'
+"Plugin 'mattn/emmet-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'euclio/vim-nocturne'
 Plugin 'scrooloose/nerdtree'
@@ -39,12 +41,11 @@ Plugin 'gcmt/taboo.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()            " required
-nnoremap <F9> /asdf<cr>
+nnoremap <F9> /asdf<cr> :echo <cr>
+nnoremap <F4> :BD<cr>
+nnoremap <F2> :Lpurge<cr>
 nnoremap <leader>ll iconsole.log()<esc>i 
-nnoremap <tab> >>
-nnoremap <C-tab> <<
-vnoremap <tab> >
-vnoremap <C-tab> <
+nnoremap <C-t> :tabnew<cr>
 inoremap <C-v> <esc>pa
 nnoremap <leader>lp :Lpurge<cr>
 nnoremap <leader>v :vsp<CR><C-w>l :CtrlP <CR>
@@ -82,17 +83,19 @@ set hlsearch
 :inoremap fj <esc>:w<cr>
 :nnoremap fj :w<cr>
 :inoremap <esc> <nop>
+:nnoremap <esc> :close<cr>
 :onoremap p i(
 :onoremap " i"
 :onoremap ' i'
 :onoremap [ i[
+:nnoremap <leader><space> >>
 :nnoremap <space> za
 :vnoremap <space> z
 inoremap <C-space> <C-p>
 filetype plugin indent on    " required
 set laststatus=2
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-:set guioptions-=m  "remove menu bar
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+":set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
@@ -101,30 +104,65 @@ nmap ga <Plug>(EasyAlign)
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:airline_powerline_fonts=1
-colorscheme default
-let g:airline_theme='base16_paraiso'
+let g:airline_theme='base16'
 "Coloring
 hi Folded guibg=#ffffff
 hi Folded guifg=red
 hi VertSplit guifg=#002b2b guibg=#002b2b
 hi Search guifg=white guibg=red
 if has("win32") || has("win16")
-    set guifont=CodeNewRoman_NF:h12:cRUSSIAN:qDRAFT
+    set guifont=SpaceMono_NF:h12:cANSI:qDRAFT
 endif
 set nowrap "disable text wrapping 
 
 "custom commands
 function! SetDarkFn()
-    colorscheme nocturne
-    hi folded guibg=#000000
+    colorscheme ayu
+    hi VertSplit guifg=white 
 endfunction
 command! SetDark call SetDarkFn()
 command! SetLight :colorscheme default
-command! SetLargeFont set guifont=CodeNewRoman_NF:h16:cRUSSIAN:qDRAFT
-command! SetSmallFont set guifont=CodeNewRoman_NF:h9:cRUSSIAN:qDRAFT
+command! SetLargeFont set guifont=SpaceMono_NF:h16:cANSI:qDRAFT
+command! SetSmallFont set guifont=SpaceMono_NF:h9:cANSI:qDRAFT
 
 "bookmarks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set fillchars+=vert:.
+set fillchars+=fold:\ 
+colorscheme macvim-light
+hi folded guibg=#ffffff
+highlight OverLength ctermbg=red ctermfg=white guibg='white' guifg='red'
+match OverLength /\%81v.\+/
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode'])
+    let g:airline_section_b = '%{strftime("%c")}'
+    let g:airline_section_c = 'BN: %{bufnr("%")}'
+    let g:airline_section_c = 'BN: %{bufnr("%")}'
+endfunction
+
+autocmd VimEnter * call AirlineInit()
+
+function! MyPlugin(...)
+    " first variable is the statusline builder
+    let builder = a:1
+
+    " WARNING: the API for the builder is not finalized and may change
+    call builder.add_section('StatusLine', '%f')
+    call builder.split()
+    call builder.add_section('airline_y', "%{strlen(getline('.'))}")
+    call builder.add_section('airline_x', 'b: %{bufnr("%")}')
+    call builder.add_section('airline_z', '%l% /%{line("$")}')
+
+    " tell the core to use the contents of the builder
+    return 1
+endfunction
+call airline#add_statusline_func('MyPlugin')
+
