@@ -1,0 +1,23 @@
+set tabstop=4
+set shiftwidth=4
+:nnoremap fq :q<cr>
+:inoremap jk <esc>
+:inoremap fj <esc>:w<cr>
+:nnoremap fj :w<cr>
+:inoremap <esc> <nop>
+set foldmethod=indent
+set hlsearch
+:onoremap p i(
+:onoremap " i"
+:onoremap ' i'
+:onoremap [ i[
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+nnoremap <S-D> dd
+
+
+"copy the file contents
+nnoremap <C-A> ggVGy
