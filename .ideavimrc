@@ -1,3 +1,5 @@
+let mapleader = ","
+nnoremap \ ,
 set tabstop=4
 set shiftwidth=4
 :nnoremap fq :q<cr>
@@ -21,3 +23,4 @@ nnoremap <S-D> dd
 
 "copy the file contents
 nnoremap <C-A> ggVGy
+nnoremap <leader>t yiwo<esc>iconsole.log("",)<esc>3hp2lp
